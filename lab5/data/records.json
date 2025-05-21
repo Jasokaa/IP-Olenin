@@ -1,0 +1,18 @@
+[
+  {
+    "name": "Владислав ",
+    "age": "20",
+    "gender": "male",
+    "exercise_frequency": "rarely",
+    "fitness_goal": "muscle_gain",
+    "fitness_level": "2",
+    "limitations": "joint",
+    "exercise_duration": "long",
+    "recovery_time": "short",
+    "exercise_type": [
+      "strength"
+    ],
+    "id": "1747862050642-jsbnat6xe",
+    "createdAt": "2025-05-21T21:14:10.642Z"
+  }
+]

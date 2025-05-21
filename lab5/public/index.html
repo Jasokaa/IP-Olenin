@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physical Fitness Test</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Physical Fitness Test Form</h1>
+        
+        <div class="tabs">
+            <div class="tab active" data-tab="form-tab">Form</div>
+            <div class="tab" data-tab="records-tab">Records</div>
+            <div class="tab" data-tab="export-tab">Export Data</div>
+        </div>
+        
+        <div id="form-tab" class="tab-content active">
+            <form id="fitness-form">
+                <!-- Personal Information -->
+                <fieldset>
+                    <legend>Personal Information</legend>
+                    <div class="form-group">
+                        <label for="name">Full Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="age">Age:</label>
+                        <input type="number" id="age" name="age" min="12" max="100" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Gender:</label>
+                        <select id="gender" name="gender" required>
+                            <option value="">Select option</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </fieldset>
+
+                <!-- Question 1 - Radio Buttons -->
+                <fieldset>
+                    <legend>Exercise Frequency</legend>
+                    <div class="form-group">
+                        <p class="question">1. How often do you engage in physical activity?</p>
+                        <label class="option-label">
+                            <input type="radio" name="exercise_frequency" value="rarely" required> 
+                            Rarely (less than once a week)
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="exercise_frequency" value="sometimes"> 
+                            Sometimes (1-2 times a week)
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="exercise_frequency" value="regularly"> 
+                            Regularly (3 or more times a week)
+                        </label>
+                    </div>
+                </fieldset>
+
+                <!-- Question 2 - Checkboxes -->
+                <fieldset>
+                    <legend>Exercise Preferences</legend>
+                    <div class="form-group">
+                        <p class="question">2. Which type of physical activities do you prefer?</p>
+                        <label class="option-label">
+                            <input type="checkbox" name="exercise_type" value="cardio"> 
+                            Cardio (running, swimming, cycling)
+                        </label>
+                        <label class="option-label">
+                            <input type="checkbox" name="exercise_type" value="strength"> 
+                            Strength Training (weights, resistance exercises)
+                        </label>
+                        <label class="option-label">
+                            <input type="checkbox" name="exercise_type" value="flexibility"> 
+                            Flexibility (yoga, stretching, pilates)
+                        </label>
+                    </div>
+                </fieldset>
+
+                <!-- Question 3 - Dropdown -->
+                <fieldset>
+                    <legend>Fitness Goals</legend>
+                    <div class="form-group">
+                        <p class="question">3. What is your primary fitness goal?</p>
+                        <select name="fitness_goal" required>
+                            <option value="">Select one option</option>
+                            <option value="weight_loss">Weight loss</option>
+                            <option value="muscle_gain">Muscle gain</option>
+                            <option value="endurance">Improved endurance</option>
+                        </select>
+                    </div>
+                </fieldset>
+
+                <!-- Question 4 - Range Slider -->
+                <fieldset>
+                    <legend>Current Fitness Level</legend>
+                    <div class="form-group">
+                        <p class="question">4. How would you rate your current fitness level?</p>
+                        <input type="range" id="fitness_level" name="fitness_level" min="1" max="3" step="1" value="2">
+                        <div class="range-labels">
+                            <span>Beginner</span>
+                            <span>Intermediate</span>
+                            <span>Advanced</span>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Question 5 - Select with limited options -->
+                <fieldset>
+                    <legend>Physical Limitations</legend>
+                    <div class="form-group">
+                        <p class="question">5. Do you have any physical limitations or health concerns?</p>
+                        <select name="limitations" required>
+                            <option value="">Select one option</option>
+                            <option value="none">No limitations</option>
+                            <option value="joint">Joint problems</option>
+                            <option value="cardiovascular">Cardiovascular issues</option>
+                        </select>
+                    </div>
+                </fieldset>
+
+                <!-- Question 6 - Radio buttons for time -->
+                <fieldset>
+                    <legend>Exercise Duration</legend>
+                    <div class="form-group">
+                        <p class="question">6. How long can you typically exercise in one session?</p>
+                        <label class="option-label">
+                            <input type="radio" name="exercise_duration" value="short" required> 
+                            Less than 30 minutes
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="exercise_duration" value="medium"> 
+                            30-60 minutes
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="exercise_duration" value="long"> 
+                            More than 60 minutes
+                        </label>
+                    </div>
+                </fieldset>
+
+                <!-- Question 7 - Buttons for selection -->
+                <fieldset>
+                    <legend>Recovery</legend>
+                    <div class="form-group">
+                        <p class="question">7. How long does it typically take you to recover after intense exercise?</p>
+                        <div style="display: flex; justify-content: space-between; margin-top: 10px;">
+                            <label class="option-label" style="flex: 1; text-align: center;">
+                                <input type="radio" name="recovery_time" value="short" required>
+                                <div style="padding: 10px; background-color: #ffb6c1; border-radius: 5px; margin: 0 5px;">
+                                    Less than a day
+                                </div>
+                            </label>
+                            <label class="option-label" style="flex: 1; text-align: center;">
+                                <input type="radio" name="recovery_time" value="medium">
+                                <div style="padding: 10px; background-color: #ffb6c1; border-radius: 5px; margin: 0 5px;">
+                                    1-2 days
+                                </div>
+                            </label>
+                            <label class="option-label" style="flex: 1; text-align: center;">
+                                <input type="radio" name="recovery_time" value="long">
+                                <div style="padding: 10px; background-color: #ffb6c1; border-radius: 5px; margin: 0 5px;">
+                                    More than 2 days
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Input for editing - hidden by default -->
+                <input type="hidden" id="edit-id" name="edit-id" value="">
+
+                <!-- Form Submission -->
+                <div class="btn-container">
+                    <button type="submit" id="submit-btn">Save Data</button>
+                    <button type="reset" id="reset-btn">Reset Form</button>
+                </div>
+            </form>
+        </div>
+        
+        <div id="records-tab" class="tab-content">
+            <h2>Saved Records</h2>
+            <div id="records-container">
+                <div id="no-records" class="hidden">No records found</div>
+                <div id="records-list"></div>
+            </div>
+        </div>
+        
+        <div id="export-tab" class="tab-content">
+            <h2>Export Data</h2>
+            <div class="form-group">
+                <label for="data-format-selector">Select format:</label>
+                <select id="data-format-selector">
+                    <option value="json">JSON Format</option>
+                    <option value="xml">XML Format</option>
+                </select>
+                <div class="btn-container">
+                    <button id="export-btn">Download Data</button>
+                </div>
+            </div>
+            <div id="export-preview">
+                <h3>API Information:</h3>
+                <pre id="export-content">
+API Endpoints:
+- GET    /api/records     - Get all records
+- GET    /api/records/:id - Get a specific record
+- POST   /api/records     - Create a new record
+- PUT    /api/records/:id - Update a record
+- DELETE /api/records/:id - Delete a record
+- GET    /api/export/:format - Export data (json or xml)
+                </pre>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript files -->
+    <script src="client.js"></script>
+</body>
+</html>
