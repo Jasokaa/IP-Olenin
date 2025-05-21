@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XPath Expression Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff0f5;
+            color: #333;
+        }
+        h1 {
+            color: #d6336c;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .query-controls {
+            display: flex;
+            margin-bottom: 15px;
+            gap: 10px;
+        }
+        input, button, select {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        input {
+            flex-grow: 1;
+        }
+        button {
+            background-color: #f06595;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #d6336c;
+        }
+        select {
+            background-color: white;
+        }
+        .examples {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .example-btn {
+            background-color: #ffdeeb;
+            color: #d6336c;
+            border: 1px solid #f06595;
+            padding: 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+            font-size: 0.9em;
+        }
+        .example-btn:hover {
+            background-color: #f06595;
+            color: white;
+        }
+        .result-container {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 10px;
+            margin-top: 15px;
+            min-height: 300px;
+            max-height: 500px;
+            overflow: auto;
+            background-color: #fff;
+        }
+        .result-item {
+            padding: 8px;
+            margin-bottom: 8px;
+            border-radius: 4px;
+            background-color: #ffdeeb;
+        }
+        pre {
+            white-space: pre-wrap;
+            margin: 0;
+            font-family: monospace;
+        }
+        .emoji-bullet {
+            margin-right: 10px;
+        }
+        #explanation {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #ffdeeb;
+            border-radius: 4px;
+            border-left: 4px solid #f06595;
+        }
+    </style>
+</head>
+<body>
+    <h1>🌸 XPath Expression Demo 🌸</h1>
+    
+    <div class="container">
+        <h2>📚 XPath Query Tool</h2>
+        
+        <div class="query-controls">
+            <input type="text" id="xpath-input" placeholder="Enter XPath expression..." value="/library/department">
+            <button id="execute-btn">Execute Query</button>
+        </div>
+        
+        <h3>Common XPath Expressions</h3>
+        <div class="examples">
+            <button class="example-btn" data-xpath="/library/department">/library/department</button>
+            <button class="example-btn" data-xpath="//book[@available='true']">//book[@available='true']</button>
+            <button class="example-btn" data-xpath="//book[price > 20]">//book[price > 20]</button>
+            <button class="example-btn" data-xpath="//book[count(author)>1]">//book[count(author)>1]</button>
+            <button class="example-btn" data-xpath="//title[@language='en']">//title[@language='en']</button>
+            <button class="example-btn" data-xpath="//department[@name='Fiction']/book/title">//department[@name='Fiction']/book/title</button>
+        </div>
+        
+        <div id="explanation"></div>
+        
+        <h3>Results</h3>
+        <div class="result-container" id="results">
+            <div class="result-item">
+                <p>Use one of the example buttons or enter your own XPath expression and click "Execute Query"</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // XML Content (normally loaded from external file)
+        const xmlContent = `<?xml version="1.0" encoding="UTF-8"?>
+<library>
+  <department name="Fiction">
+    <book id="B001" available="true">
+      <title language="en">Pride and Prejudice</title>
+      <author>Jane Austen</author>
+      <year>1813</year>
+      <genre>Classic Romance</genre>
+      <price currency="USD">12.99</price>
+      <copies>5</copies>
+    </book>
+    <book id="B002" available="false">
+      <title language="en">1984</title>
+      <author>George Orwell</author>
+      <year>1949</year>
+      <genre>Dystopian</genre>
+      <price currency="USD">14.50</price>
+      <copies>3</copies>
+    </book>
+  </department>
+  
+  <department name="Science">
+    <book id="B003" available="true">
+      <title language="en">A Brief History of Time</title>
+      <author>Stephen Hawking</author>
+      <year>1988</year>
+      <genre>Physics</genre>
+      <price currency="USD">18.75</price>
+      <copies>2</copies>
+    </book>
+    <book id="B004" available="true">
+      <title language="fr">L'Origine des Espèces</title>
+      <author>Charles Darwin</author>
+      <year>1859</year>
+      <genre>Biology</genre>
+      <price currency="EUR">16.20</price>
+      <copies>1</copies>
+    </book>
+  </department>
+  
+  <department name="Technology">
+    <book id="B005" available="true">
+      <title language="en">Clean Code</title>
+      <author>Robert C. Martin</author>
+      <year>2008</year>
+      <genre>Programming</genre>
+      <price currency="USD">24.99</price>
+      <copies>7</copies>
+    </book>
+    <book id="B006" available="false">
+      <title language="en">Design Patterns</title>
+      <author>Erich Gamma</author>
+      <author>Richard Helm</author>
+      <author>Ralph Johnson</author>
+      <author>John Vlissides</author>
+      <year>1994</year>
+      <genre>Software Engineering</genre>
+      <price currency="USD">29.99</price>
+      <copies>0</copies>
+    </book>
+  </department>
+  
+  <members>
+    <member id="M001" status="active">
+      <n>John Smith</n>
+      <borrowedBooks>
+        <bookRef id="B002" dueDate="2025-06-15"/>
+      </borrowedBooks>
+    </member>
+    <member id="M002" status="active">
+      <n>Emma Wilson</n>
+      <borrowedBooks>
+        <bookRef id="B006" dueDate="2025-06-10"/>
+      </borrowedBooks>
+    </member>
+  </members>
+</library>`;
+        
+        // Parse XML
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(xmlContent, "text/xml");
+        
+        // Explanations for common XPath expressions
+        const explanations = {
+            "/library/department": "Selects all department elements that are direct children of the library element",
+            "//book[@available='true']": "Selects all available books across all departments",
+            "//book[price > 20]": "Selects books with price greater than 20 (in any currency)",
+            "//book[count(author)>1]": "Selects books with more than one author",
+            "//title[@language='en']": "Selects all English language titles",
+            "//department[@name='Fiction']/book/title": "Selects titles of all books in the Fiction department"
+        };
+        
+        // Function to execute XPath query
+        function executeXPathQuery(xpath) {
+            const resultsContainer = document.getElementById('results');
+            resultsContainer.innerHTML = "";
+            
+            try {
+                const result = document.evaluate(xpath, xmlDoc, null, XPathResult.ANY_TYPE, null);
+                let node;
+                let hasResults = false;
+                
+                // Display the explanation if available
+                const explanationDiv = document.getElementById('explanation');
+                if (explanations[xpath]) {
+                    explanationDiv.innerHTML = `<strong>💡 Explanation:</strong> ${explanations[xpath]}`;
+                } else {
+                    explanationDiv.innerHTML = "";
+                }
+                
+                // Process results
+                if (result.resultType === XPathResult.NUMBER_TYPE) {
+                    addResultItem("Number result: " + result.numberValue);
+                    hasResults = true;
+                } else if (result.resultType === XPathResult.STRING_TYPE) {
+                    addResultItem("String result: " + result.stringValue);
+                    hasResults = true;
+                } else if (result.resultType === XPathResult.BOOLEAN_TYPE) {
+                    addResultItem("Boolean result: " + result.booleanValue);
+                    hasResults = true;
+                } else {
+                    // Process node results
+                    const emojis = ["💖", "🎀", "💝", "✨", "🌸"];
+                    let count = 0;
+                    
+                    while ((node = result.iterateNext())) {
+                        const emoji = emojis[count % emojis.length];
+                        count++;
+                        
+                        let nodeContent;
+                        if (node.nodeType === Node.ATTRIBUTE_NODE) {
+                            addResultItem(`${emoji} Attribute: ${node.nodeName}="${node.nodeValue}"`);
+                        } else if (node.nodeType === Node.TEXT_NODE) {
+                            addResultItem(`${emoji} Text node: "${node.nodeValue.trim()}"`);
+                        } else {
+                            // Element node - create XML representation
+                            let nodeXml = new XMLSerializer().serializeToString(node);
+                            addResultItem(`${emoji} <pre>${escapeHtml(nodeXml)}</pre>`);
+                        }
+                        hasResults = true;
+                    }
+                    
+                    if (count > 0) {
+                        resultsContainer.insertAdjacentHTML('afterbegin', `<div class="result-item">✅ Found ${count} result${count !== 1 ? 's' : ''}</div>`);
+                    }
+                }
+                
+                if (!hasResults) {
+                    addResultItem("❌ No results found for this XPath expression");
+                }
+            } catch (error) {
+                addResultItem(`❌ Error executing XPath: ${error.message}`);
+            }
+        }
+        
+        function addResultItem(content) {
+            const resultsContainer = document.getElementById('results');
+            const resultItem = document.createElement('div');
+            resultItem.className = 'result-item';
+            resultItem.innerHTML = content;
+            resultsContainer.appendChild(resultItem);
+        }
+        
+        function escapeHtml(unsafe) {
+            return unsafe
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+        
+        // Event listeners
+        document.getElementById('execute-btn').addEventListener('click', function() {
+            const xpath = document.getElementById('xpath-input').value;
+            executeXPathQuery(xpath);
+        });
+        
+        // Example buttons
+        document.querySelectorAll('.example-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const xpath = this.getAttribute('data-xpath');
+                document.getElementById('xpath-input').value = xpath;
+                executeXPathQuery(xpath);
+            });
+        });
+        
+        // Execute default query on load
+        window.addEventListener('load', function() {
+            executeXPathQuery('/library/department');
+        });
+    </script>
+</body>
+</html>

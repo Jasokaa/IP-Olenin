@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="students.xsl" version="1.0"?>
+<university>
+  <faculty>
+    <name>Faculty of Computer Science</name>
+    <department>
+      <name>Software Engineering</name>
+      <course>
+        <number>1</number>
+        <student>
+          <id>1</id>
+          <full_name>Anna Johnson</full_name>
+          <age>18</age>
+          <gpa>92.5</gpa>
+        </student>
+        <student>
+          <id>2</id>
+          <full_name>Michael Smith</full_name>
+          <age>19</age>
+          <gpa>88.7</gpa>
+        </student>
+        <student>
+          <id>3</id>
+          <full_name>Emma Davis</full_name>
+          <age>18</age>
+          <gpa>95.3</gpa>
+        </student>
+      </course>
+      <course>
+        <number>2</number>
+        <student>
+          <id>1</id>
+          <full_name>David Wilson</full_name>
+          <age>20</age>
+          <gpa>87.1</gpa>
+        </student>
+        <student>
+          <id>2</id>
+          <full_name>Sophia Brown</full_name>
+          <age>19</age>
+          <gpa>91.8</gpa>
+        </student>
+      </course>
+    </department>
+  </faculty>
+</university>

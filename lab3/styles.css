@@ -1,0 +1,205 @@
+/* Pink Theme CSS for Mental Arithmetic Test */
+
+:root {
+    --primary-color: #ff69b4;
+    --primary-light: #ffb6c1;
+    --primary-dark: #c71585;
+    --accent-color: #ff1493;
+    --background-color: #fff0f5;
+    --text-color: #333;
+    --success-color: #4caf50;
+    --error-color: #f44336;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: var(--primary-dark);
+    margin-bottom: 20px;
+    font-size: 32px;
+}
+
+h2 {
+    color: var(--primary-color);
+    margin: 15px 0;
+    font-size: 24px;
+}
+
+/* Operation and Range Selection */
+.operations, .ranges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.operation-btn, .range-btn {
+    padding: 10px 15px;
+    border: 2px solid var(--primary-color);
+    background-color: white;
+    color: var(--primary-color);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: bold;
+}
+
+.operation-btn:hover, .range-btn:hover {
+    background-color: var(--primary-light);
+}
+
+.operation-btn.selected, .range-btn.selected {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Test Area */
+.test-area {
+    margin: 30px 0;
+    text-align: center;
+}
+
+.problem {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: var(--primary-dark);
+}
+
+.answer-field {
+    font-size: 30px;
+    font-weight: bold;
+    height: 50px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--primary-color);
+    display: inline-block;
+    min-width: 100px;
+    text-align: center;
+}
+
+/* Number Pad */
+.number-pad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.num-btn {
+    padding: 15px;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: bold;
+}
+
+/* Different colored buttons */
+.num-btn[data-value="1"] {
+    background-color: #ffb6c1; /* Light Pink */
+}
+
+.num-btn[data-value="2"] {
+    background-color: #ffc0cb; /* Pink */
+}
+
+.num-btn[data-value="3"] {
+    background-color: #ffb7ce; /* Rose Pink */
+}
+
+.num-btn[data-value="4"] {
+    background-color: #ffa6c9; /* Carnation Pink */
+}
+
+.num-btn[data-value="5"] {
+    background-color: #ff8da1; /* Flamingo Pink */
+}
+
+.num-btn[data-value="6"] {
+    background-color: #ffc3d4; /* Cherry Blossom Pink */
+}
+
+.num-btn[data-value="7"] {
+    background-color: #ffa6c9; /* Carnation Pink */
+}
+
+.num-btn[data-value="8"] {
+    background-color: #ff93ac; /* Salmon Pink */
+}
+
+.num-btn[data-value="9"] {
+    background-color: #ff85a2; /* Flamingo Pink */
+}
+
+.num-btn[data-value="0"] {
+    background-color: #ffb6c1; /* Light Pink */
+}
+
+.num-btn:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+.clear-btn {
+    background-color: #ff5c8d !important;
+    color: white;
+}
+
+.submit-btn {
+    background-color: #ff1493 !important;
+    color: white;
+}
+
+/* Results */
+.results {
+    text-align: center;
+    margin-top: 30px;
+    padding: 15px;
+    border-top: 2px solid var(--primary-light);
+}
+
+.score {
+    display: flex;
+    justify-content: space-around;
+    margin: 15px 0;
+    font-size: 18px;
+}
+
+.feedback {
+    font-size: 20px;
+    font-weight: bold;
+    height: 30px;
+    margin: 15px 0;
+}
+
+.correct {
+    color: var(--success-color);
+}
+
+.incorrect {
+    color: var(--error-color);
+}

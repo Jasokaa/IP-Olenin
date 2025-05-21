@@ -1,0 +1,128 @@
+/* Pink Theme for Psychical Test */
+
+/* Root element */
+PsychicalTest {
+  display: block;
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff0f5; /* Light pink background */
+  border: 2px solid #ff69b4; /* Hot pink border */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 105, 180, 0.3);
+}
+
+/* Test information section */
+TestInfo {
+  display: block;
+  margin-bottom: 30px;
+  padding: 15px;
+  background-color: #ffc0cb; /* Pink background */
+  border-radius: 8px;
+}
+
+TestName {
+  display: block;
+  font-size: 24px;
+  font-weight: bold;
+  color: #c71585; /* Medium violet red */
+  text-align: center;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+TestDescription, TestPurpose {
+  display: block;
+  margin: 10px 0;
+  line-height: 1.4;
+  color: #8b008b; /* Dark magenta */
+}
+
+/* Test sections */
+TestSections {
+  display: block;
+}
+
+Section {
+  display: block;
+  margin: 20px 0;
+  padding: 15px;
+  background-color: #ffe4e1; /* Misty rose */
+  border-radius: 8px;
+  border-left: 5px solid #ff1493; /* Deep pink */
+}
+
+SectionTitle {
+  display: block;
+  font-size: 20px;
+  font-weight: bold;
+  color: #db7093; /* Pale violet red */
+  margin-bottom: 15px;
+  border-bottom: 2px dotted #ffb6c1; /* Light pink */
+  padding-bottom: 5px;
+}
+
+Questions {
+  display: block;
+}
+
+Question {
+  display: block;
+  margin: 15px 0;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid #ffc0cb; /* Pink */
+}
+
+QuestionText {
+  display: block;
+  font-weight: bold;
+  color: #ff69b4; /* Hot pink */
+  margin-bottom: 10px;
+}
+
+PossibleAnswers {
+  display: block;
+  margin: 10px 0;
+}
+
+Answer {
+  display: block;
+  margin: 5px 0;
+  padding: 5px;
+  color: #c71585; /* Medium violet red */
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+Answer:hover {
+  background-color: #ffb6c1; /* Light pink */
+  border-radius: 3px;
+}
+
+Answer:before {
+  color: #ff1493; /* Deep pink */
+}
+
+ScoreInfo {
+  display: none; /* Hide score info by default */
+}
+
+/* Make the test look interactive even though it's just XML/CSS */
+Question:hover {
+  box-shadow: 0 0 5px rgba(219, 112, 147, 0.5);
+}
+
+/* Add a styled note at the bottom about how this is just a demonstration */
+PsychicalTest:after {
+  display: block;
+  content: "This is a sample psychical test XML structure with CSS styling";
+  font-style: italic;
+  text-align: center;
+  margin-top: 20px;
+  color: #c71585; /* Medium violet red */
+  padding: 10px;
+  border-top: 1px dashed #ff69b4; /* Hot pink */
+}

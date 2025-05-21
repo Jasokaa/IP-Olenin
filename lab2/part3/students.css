@@ -1,0 +1,90 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #FFF0F5; /* Light pink background */
+  margin: 20px;
+  text-align: center;
+  color: #333;
+}
+
+h1 {
+  color: #FF1493; /* Deep pink */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.faculty {
+  background-color: #FFEBEE; /* Lighter pink */
+  border-radius: 10px;
+  padding: 15px;
+  margin: 20px auto;
+  max-width: 900px;
+  box-shadow: 0 0 10px rgba(255, 105, 180, 0.3);
+}
+
+.department {
+  background-color: #FFD6E0; /* Medium pink */
+  border-radius: 8px;
+  padding: 12px;
+  margin: 15px 0;
+}
+
+.course {
+  background-color: #FFE4EC; /* Soft pink */
+  border-radius: 6px;
+  padding: 10px;
+  margin: 12px 0;
+}
+
+h2 {
+  color: #FF69B4; /* Hot pink */
+  margin-top: 5px;
+}
+
+h3 {
+  color: #FF78A1; /* Rose pink */
+}
+
+h4 {
+  color: #FF85A7; /* Salmon pink */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  background-color: white;
+  box-shadow: 0 0 5px rgba(255, 105, 180, 0.2);
+}
+
+th {
+  background-color: #FF9EB5; /* Light rose */
+  color: white;
+  padding: 10px;
+}
+
+td {
+  padding: 8px;
+}
+
+td.id {
+  width: 10%;
+  text-align: center;
+  background-color: #FFCCD5; /* Very light pink */
+}
+
+td.name {
+  width: 50%;
+  background-color: #FFE5EE; /* Pastel pink */
+}
+
+td.age {
+  width: 15%;
+  text-align: center;
+  background-color: #FFCCD5; /* Very light pink */
+}
+
+td.gpa {
+  width: 25%;
+  text-align: center;
+  background-color: #FFE5EE; /* Pastel pink */
+  font-weight: bold;
+}

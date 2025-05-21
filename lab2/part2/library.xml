@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library>
+  <department name="Fiction">
+    <book id="B001" available="true">
+      <title language="en">Pride and Prejudice</title>
+      <author>Jane Austen</author>
+      <year>1813</year>
+      <genre>Classic Romance</genre>
+      <price currency="USD">12.99</price>
+      <copies>5</copies>
+    </book>
+    <book id="B002" available="false">
+      <title language="en">1984</title>
+      <author>George Orwell</author>
+      <year>1949</year>
+      <genre>Dystopian</genre>
+      <price currency="USD">14.50</price>
+      <copies>3</copies>
+    </book>
+  </department>
+  
+  <department name="Science">
+    <book id="B003" available="true">
+      <title language="en">A Brief History of Time</title>
+      <author>Stephen Hawking</author>
+      <year>1988</year>
+      <genre>Physics</genre>
+      <price currency="USD">18.75</price>
+      <copies>2</copies>
+    </book>
+    <book id="B004" available="true">
+      <title language="fr">L'Origine des Espèces</title>
+      <author>Charles Darwin</author>
+      <year>1859</year>
+      <genre>Biology</genre>
+      <price currency="EUR">16.20</price>
+      <copies>1</copies>
+    </book>
+  </department>
+  
+  <department name="Technology">
+    <book id="B005" available="true">
+      <title language="en">Clean Code</title>
+      <author>Robert C. Martin</author>
+      <year>2008</year>
+      <genre>Programming</genre>
+      <price currency="USD">24.99</price>
+      <copies>7</copies>
+    </book>
+    <book id="B006" available="false">
+      <title language="en">Design Patterns</title>
+      <author>Erich Gamma</author>
+      <author>Richard Helm</author>
+      <author>Ralph Johnson</author>
+      <author>John Vlissides</author>
+      <year>1994</year>
+      <genre>Software Engineering</genre>
+      <price currency="USD">29.99</price>
+      <copies>0</copies>
+    </book>
+  </department>
+  
+  <members>
+    <member id="M001" status="active">
+      <name>John Smith</name>
+      <borrowedBooks>
+        <bookRef id="B002" dueDate="2025-06-15"/>
+      </borrowedBooks>
+    </member>
+    <member id="M002" status="active">
+      <name>Emma Wilson</name>
+      <borrowedBooks>
+        <bookRef id="B006" dueDate="2025-06-10"/>
+      </borrowedBooks>
+    </member>
+  </members>
+</library>

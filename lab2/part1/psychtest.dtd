@@ -1,0 +1,25 @@
+<!ELEMENT PsychicalTest (TestInfo, TestSections)>
+
+<!ELEMENT TestInfo (TestName, TestDescription, TestPurpose)>
+<!ELEMENT TestName (#PCDATA)>
+<!ELEMENT TestDescription (#PCDATA)>
+<!ELEMENT TestPurpose (#PCDATA)>
+
+<!ELEMENT TestSections (Section+)>
+<!ELEMENT Section (SectionTitle, Questions)>
+<!ATTLIST Section id ID #REQUIRED>
+
+<!ELEMENT SectionTitle (#PCDATA)>
+<!ELEMENT Questions (Question+)>
+<!ELEMENT Question (QuestionText, PossibleAnswers, ScoreInfo)>
+<!ATTLIST Question id ID #REQUIRED>
+
+<!ELEMENT QuestionText (#PCDATA)>
+<!ELEMENT PossibleAnswers (Answer+)>
+<!ELEMENT Answer (#PCDATA)>
+<!ATTLIST Answer value CDATA #REQUIRED>
+<!ATTLIST Answer id ID #REQUIRED>
+
+<!ELEMENT ScoreInfo (Interpretation+)>
+<!ELEMENT Interpretation (#PCDATA)>
+<!ATTLIST Interpretation scoreRange CDATA #REQUIRED>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Arithmetic Test (Variant 7)</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Mental Arithmetic Test</h1>
+        
+        <!-- Operation Selection -->
+        <div class="operation-selection">
+            <h2>Select Operation:</h2>
+            <div class="operations">
+                <button id="add-op" class="operation-btn">Addition (+)</button>
+                <button id="subtract-op" class="operation-btn">Subtraction (-)</button>
+                <button id="multiply-op" class="operation-btn selected">Multiplication (*)</button>
+            </div>
+        </div>
+        
+        <!-- Range Selection -->
+        <div class="range-selection">
+            <h2>Select Range:</h2>
+            <div class="ranges">
+                <button id="range-10" class="range-btn">0-10</button>
+                <button id="range-27" class="range-btn selected">0-27</button>
+                <button id="range-50" class="range-btn">0-50</button>
+                <button id="range-100" class="range-btn">0-100</button>
+            </div>
+        </div>
+        
+        <!-- Test Area -->
+        <div class="test-area">
+            <div class="problem" id="problem">6 * 7 = ?</div>
+            <div class="answer-field" id="answer-field">_</div>
+            
+            <!-- Number Pad -->
+            <div class="number-pad">
+                <button class="num-btn" data-value="1">1</button>
+                <button class="num-btn" data-value="2">2</button>
+                <button class="num-btn" data-value="3">3</button>
+                <button class="num-btn" data-value="4">4</button>
+                <button class="num-btn" data-value="5">5</button>
+                <button class="num-btn" data-value="6">6</button>
+                <button class="num-btn" data-value="7">7</button>
+                <button class="num-btn" data-value="8">8</button>
+                <button class="num-btn" data-value="9">9</button>
+                <button class="num-btn clear-btn" data-value="C">C</button>
+                <button class="num-btn" data-value="0">0</button>
+                <button class="num-btn submit-btn" data-value="=">Enter</button>
+            </div>
+        </div>
+        
+        <!-- Results -->
+        <div class="results">
+            <h2>Results:</h2>
+            <div class="score">
+                <span>Correct: <span id="correct-count">0</span></span>
+                <span>Total: <span id="total-count">0</span></span>
+                <span>Percentage: <span id="percentage">0%</span></span>
+            </div>
+            <div id="feedback" class="feedback"></div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

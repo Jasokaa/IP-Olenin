@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratory Work 1-1-Part3</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .task-description {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .image-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .instructions {
+            margin-top: 20px;
+            background-color: #eef7ff;
+            padding: 15px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Laboratory Work 1-1-Part3</h1>
+    
+    <div class="task-description">
+        <h2>Variant 7:</h2>
+        <p>Create the image map of the square divided into 4 regions. Each region should possess 
+        different color. Each region should reference to the pages of previously accomplished 
+        laboratory works.</p>
+    </div>
+    
+    <div class="image-container">
+        <!-- Create a 400x400 square with 4 different colored regions -->
+        <svg id="colorSquare" width="400" height="400" viewBox="0 0 400 400">
+            <!-- Top-left quadrant - Red -->
+            <rect x="0" y="0" width="200" height="200" fill="#FF6B6B" />
+            <!-- Top-right quadrant - Green -->
+            <rect x="200" y="0" width="200" height="200" fill="#4ECDC4" />
+            <!-- Bottom-left quadrant - Yellow -->
+            <rect x="0" y="200" width="200" height="200" fill="#FFE66D" />
+            <!-- Bottom-right quadrant - Blue -->
+            <rect x="200" y="200" width="200" height="200" fill="#6B7FFF" />
+        </svg>
+        
+        <!-- Create image map on top of the SVG -->
+        <map name="squareMap">
+            <!-- Top-left region (red) - links to Lab 1 -->
+            <area shape="rect" coords="0,0,200,200" href="/Users/anna/Documents/NAU/6 sem/IP Olenin/lab1/part1/index.html" alt="Part 1" title="Click to view Part 1">
+            
+            <!-- Top-right region (green) - links to Lab 2 -->
+            <area shape="rect" coords="200,0,400,200" href="/Users/anna/Documents/NAU/6 sem/IP Olenin/lab1/part2/index.html" alt="Part 2" title="Click to view Part 2">
+            
+            <!-- Bottom-left region (yellow) - links to Lab 3 -->
+            <area shape="rect" coords="0,200,200,400" href="https://www.instagram.com/kai_university/" alt="KAIinst" title="Click to view KAI inst">
+            
+            <!-- Bottom-right region (blue) - links to Lab 4 -->
+            <area shape="rect" coords="200,200,400,400" href="https://www.facebook.com/officialkai.university" alt="KAIfb" title="Click to view KAI fb">
+        </map>
+        
+        <!-- This image will use the map but be invisible -->
+        <img src="map.png" alt="Square with four colored regions" usemap="#squareMap" style="position: absolute; margin-left: -400px; width: 400px; height: 400px;">
+    </div>
+</body>
+</html>

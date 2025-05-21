@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<!DOCTYPE PsychicalTest SYSTEM "psychtest.dtd">
+<?xml-stylesheet type="text/css" href="psychtest.css"?>
+
+<PsychicalTest>
+  <TestInfo>
+    <TestName>Emotional Intelligence Assessment</TestName>
+    <TestDescription>This test evaluates your emotional intelligence and how you respond to various situations.</TestDescription>
+    <TestPurpose>To help individuals understand their emotional responses and improve their interpersonal skills.</TestPurpose>
+  </TestInfo>
+  
+  <TestSections>
+    <Section id="S1">
+      <SectionTitle>Self-Awareness</SectionTitle>
+      <Questions>
+        <Question id="Q1">
+          <QuestionText>How often do you recognize your own emotions as they happen?</QuestionText>
+          <PossibleAnswers>
+            <Answer id="A1_1" value="1">Rarely or never</Answer>
+            <Answer id="A1_2" value="2">Sometimes</Answer>
+            <Answer id="A1_3" value="3">Often</Answer>
+            <Answer id="A1_4" value="4">Almost always</Answer>
+          </PossibleAnswers>
+          <ScoreInfo>
+            <Interpretation scoreRange="1-2">You may need to work on recognizing your emotions more quickly</Interpretation>
+            <Interpretation scoreRange="3-4">You have good emotional self-awareness</Interpretation>
+          </ScoreInfo>
+        </Question>
+        
+        <Question id="Q2">
+          <QuestionText>How well can you identify what triggers your emotional responses?</QuestionText>
+          <PossibleAnswers>
+            <Answer id="A2_1" value="1">Not well at all</Answer>
+            <Answer id="A2_2" value="2">Somewhat well</Answer>
+            <Answer id="A2_3" value="3">Very well</Answer>
+            <Answer id="A2_4" value="4">Extremely well</Answer>
+          </PossibleAnswers>
+          <ScoreInfo>
+            <Interpretation scoreRange="1-2">You could benefit from examining your emotional triggers</Interpretation>
+            <Interpretation scoreRange="3-4">You understand what triggers your emotions</Interpretation>
+          </ScoreInfo>
+        </Question>
+      </Questions>
+    </Section>
+    
+    <Section id="S2">
+      <SectionTitle>Self-Regulation</SectionTitle>
+      <Questions>
+        <Question id="Q3">
+          <QuestionText>How well do you manage negative emotions when they arise?</QuestionText>
+          <PossibleAnswers>
+            <Answer id="A3_1" value="1">Poorly - they tend to overwhelm me</Answer>
+            <Answer id="A3_2" value="2">Sometimes well, sometimes poorly</Answer>
+            <Answer id="A3_3" value="3">Usually well</Answer>
+            <Answer id="A3_4" value="4">Very well - I can calm myself quickly</Answer>
+          </PossibleAnswers>
+          <ScoreInfo>
+            <Interpretation scoreRange="1-2">Your emotional regulation skills could be improved</Interpretation>
+            <Interpretation scoreRange="3-4">You have good emotional regulation abilities</Interpretation>
+          </ScoreInfo>
+        </Question>
+        
+        <Question id="Q4">
+          <QuestionText>When faced with a stressful situation, how do you typically respond?</QuestionText>
+          <PossibleAnswers>
+            <Answer id="A4_1" value="1">I become overwhelmed and react impulsively</Answer>
+            <Answer id="A4_2" value="2">I try to stay calm but sometimes struggle</Answer>
+            <Answer id="A4_3" value="3">I usually stay calm and think before acting</Answer>
+            <Answer id="A4_4" value="4">I remain calm and respond thoughtfully</Answer>
+          </PossibleAnswers>
+          <ScoreInfo>
+            <Interpretation scoreRange="1-2">You might benefit from stress management techniques</Interpretation>
+            <Interpretation scoreRange="3-4">You handle stress effectively</Interpretation>
+          </ScoreInfo>
+        </Question>
+      </Questions>
+    </Section>
+    
+    <Section id="S3">
+      <SectionTitle>Empathy</SectionTitle>
+      <Questions>
+        <Question id="Q5">
+          <QuestionText>How well can you identify the emotions others are feeling?</QuestionText>
+          <PossibleAnswers>
+            <Answer id="A5_1" value="1">I rarely notice others' emotions</Answer>
+            <Answer id="A5_2" value="2">I sometimes notice obvious emotions</Answer>
+            <Answer id="A5_3" value="3">I usually notice others' emotions</Answer>
+            <Answer id="A5_4" value="4">I'm very attuned to others' emotional states</Answer>
+          </PossibleAnswers>
+          <ScoreInfo>
+            <Interpretation scoreRange="1-2">You could work on becoming more aware of others' emotions</Interpretation>
+            <Interpretation scoreRange="3-4">You are good at recognizing others' emotional states</Interpretation>
+          </ScoreInfo>
+        </Question>
+      </Questions>
+    </Section>
+  </TestSections>
+</PsychicalTest>
