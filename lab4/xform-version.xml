@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:xf="http://www.w3.org/2002/xforms">
+<head>
+    <title>Physical Fitness Test XForms Version</title>
+    <xf:model id="fitness_test_model">
+        <!-- Data model instance -->
+        <xf:instance id="fitness_data">
+            <data xmlns="">
+                <personal>
+                    <name></name>
+                    <age></age>
+                    <gender></gender>
+                </personal>
+                <questions>
+                    <exercise_frequency></exercise_frequency>
+                    <exercise_type></exercise_type>
+                    <fitness_goal></fitness_goal>
+                    <fitness_level>2</fitness_level>
+                    <limitations></limitations>
+                    <exercise_duration></exercise_duration>
+                    <recovery_time></recovery_time>
+                </questions>
+            </data>
+        </xf:instance>
+        
+        <!-- Form submission parameters -->
+        <xf:submission id="form_submit" method="post" action="#"/>
+    </xf:model>
+    
+    <style type="text/css">
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff0f5;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #ff69b4;
+            margin-bottom: 20px;
+        }
+        
+        .section {
+            border: 2px solid #ffb6c1;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #fff;
+        }
+        
+        .section-title {
+            font-weight: bold;
+            color: #ff1493;
+            padding: 0 10px;
+            margin-bottom: 10px;
+        }
+        
+        .question {
+            color: #d14081;
+            font-weight: bold;
+            margin: 15px 0 10px;
+        }
+        
+        .form-item {
+            margin: 10px 0;
+        }
+        
+        .buttons {
+            text-align: center;
+            margin-top: 25px;
+        }
+        
+        .button {
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            margin: 0 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .reset-button {
+            background-color: #ffb6c1;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Physical Fitness Test Form</h1>
+        
+        <!-- Personal Information Section -->
+        <div class="section">
+            <div class="section-title">Personal Information</div>
+            
+            <div class="form-item">
+                <div class="question">Full Name:</div>
+                <xf:input ref="personal/name">
+                    <xf:label></xf:label>
+                </xf:input>
+            </div>
+            
+            <div class="form-item">
+                <div class="question">Age:</div>
+                <xf:input ref="personal/age">
+                    <xf:label></xf:label>
+                </xf:input>
+            </div>
+            
+            <div class="form-item">
+                <div class="question">Gender:</div>
+                <xf:select1 ref="personal/gender">
+                    <xf:label></xf:label>
+                    <xf:item>
+                        <xf:label>Select option</xf:label>
+                        <xf:value></xf:value>
+                    </xf:item>
+                    <xf:item>
+                        <xf:label>Male</xf:label>
+                        <xf:value>male</xf:value>
+                    </xf:item>
+                    <xf:item>
+                        <xf:label>Female</xf:label>
+                        <xf:value>female</xf:value>
+                    </xf:item>
+                    <xf:item>
+                        <xf:label>Other</xf:label>
+                        <xf:value>other</xf:value>
+                    </xf:item>
+                </xf:select1>
+            </div>
+        </div>
+        
+        <!-- Question 1 -->
+        <div class="section">
+            <div class="section-title">Exercise Frequency</div>
+            <div class="question">1. How often do you engage in physical activity?</div>
+            <xf:select1 ref="questions/exercise_frequency" appearance="full">
+                <xf:item>
+                    <xf:label>Rarely (less than once a week)</xf:label>
+                    <xf:value>rarely</xf:value>
+                </xf:item>
+                <xf:item>
+                    <xf:label>Sometimes (1-2 times a week)</xf:label>
+                    <xf:value>sometimes</xf:value>
+                </xf:item>
+                <xf:item>
+                    <xf:label>Regularly (3 or more times a week)</xf:label>
+                    <xf:value>regularly</xf:value>
+                </xf:item>
+            </xf:select1>
+        </div>
+        
+        <!-- Question 2 -->
+        <div class="section">
+            <div class="section-title">Exercise Preferences</div>
+            <div class="question">2. Which type of physical activities do you prefer?</div>
+            <xf:select ref="questions/exercise_type" appearance="full">
+                <xf:item>
+                    <xf:label>Cardio (running, swimming, cycling)</xf:label>
+                    <xf:value>cardio</xf:value>
+                </xf:item>
+                <xf:item>
+                    <xf:label>Strength Training (weights, resistance exercises)</xf:label>
+                    <xf:value>strength</xf:value>
+                </xf:item>
+                <xf:item>
+                    <xf:label>Flexibility (yoga, stretching, pilates)</xf:label>
+                    <xf:value>flexibility</xf:value>
+                </xf:item>
+            </xf:select>
+        </div>
+        
+        <!-- Question 3 -->
+        <div class="section">
+            <div class="section-title">Fitness Goals</div>
+            <div class="question">3. What is your primary fitness goal?</div>
+            <xf:select1 ref="questions/fitness_goal">
+                <xf:item>
+                    <xf:label>Select one option</xf:label>
+                    <xf:value></xf:value>
+                </xf:item>
+                <xf:item>
+                    <xf:label>Weight loss</xf:label>
+                    <xf:value>weight_loss</xf:value>
+                </xf:item>
+                <xf:item>
+                    <xf:label>Muscle gain</xf:label>
+                    <xf:value>muscle_gain</xf:value>
+                </xf:item>
+                <xf:item>
+                    <xf:label>Improved endurance</xf:label>
+                    <xf:value>endurance</xf:value>
+                </xf:item>
+            </xf:select1>
+        </div>
+        
+        <!-- Question 4 -->
+        <div class="section">
+            <div class="section-title">Current Fitness Level</div>
+            <div class="question">4. How would you rate your current fitness level?</div>
+            <xf:range ref="questions/fitness_level" start="1" end="3" step="1" incremental="true">
+                <xf:label></xf:label>
+            </xf:range>
+            <div style="display: flex; justify-content: space-between; margin-top: 5px;">
+                <span>Beginner</span>
+                <span>Intermediate</span>
+                <span>Advanced</span>
+            </div>
+        </div>
+        
+        <!-- Question 5 -->
+        <div class="section">
+            <div class="section-title">Physical Limitations</div>
+            <div class="question">5. Do you have any physical limitations or health concerns?</div>
+            <xf:select1 ref="questions/limitations" appearance="full">
+                <xf:item>
+                    <xf:label>No limitations</xf:label>
+                    <xf:value>none</xf:value>
+                </xf:item>
+                <xf:item>
+                    <xf:label>Joint problems (knees, back, shoulders)</xf:label>
+                    <xf:value>joint</xf:value>
+                </xf:item>
+                <xf:item>
+                    <xf:label>Cardiovascular issues (high blood pressure, heart conditions)</xf:label>
+                    <xf:value>cardiovascular</xf:value>
+                </xf:item>
+            </xf:select1>
+        </div>
+        
+        <!-- Question 6 -->
+        <div class="section">
+            <div class="section-title">Exercise Duration</div>
+            <div class="question">6. How long can you typically exercise in one session?</div>
+            <xf:select1 ref="questions/exercise_duration" appearance="full">
+                <xf:item>
+                    <xf:label>Less than 30 minutes</xf:label>
+                    <xf:value>short</xf:value>
+                </xf:item>
+                <xf:item>
+                    <xf:label>30-60 minutes</xf:label>
+                    <xf:value>medium</xf:value>
+                </xf:item>
+                <xf:item>
+                    <xf:label>More than 60 minutes</xf:label>
+                    <xf:value>long</xf:value>
+                </xf:item>
+            </xf:select1>
+        </div>
+        
+        <!-- Question 7 -->
+        <div class="section">
+            <div class="section-title">Recovery</div>
+            <div class="question">7. How long does it typically take you to recover after intense exercise?</div>
+            <xf:select1 ref="questions/recovery_time" appearance="full">
+                <xf:item>
+                    <xf:label>Less than a day</xf:label>
+                    <xf:value>short</xf:value>
+                </xf:item>
+                <xf:item>
+                    <xf:label>1-2 days</xf:label>
+                    <xf:value>medium</xf:value>
+                </xf:item>
+                <xf:item>
+                    <xf:label>More than 2 days</xf:label>
+                    <xf:value>long</xf:value>
+                </xf:item>
+            </xf:select1>
+        </div>
+        
+        <!-- Form Submission -->
+        <div class="buttons">
+            <xf:submit submission="form_submit" class="button">
+                <xf:label>Submit Results</xf:label>
+            </xf:submit>
+            <xf:reset class="button reset-button">
+                <xf:label>Reset Form</xf:label>
+            </xf:reset>
+        </div>
+    </div>
+</body>
+</html>

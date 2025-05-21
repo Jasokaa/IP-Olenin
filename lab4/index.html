@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physical Fitness Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff0f5;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            text-align: center;
+            color: #ff69b4;
+            margin-bottom: 20px;
+        }
+        fieldset {
+            border: 2px solid #ffb6c1;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #fff;
+        }
+        legend {
+            font-weight: bold;
+            color: #ff1493;
+            padding: 0 10px;
+            background-color: #fff;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+            color: #d14081;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ffb6c1;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        .option-label {
+            display: block;
+            margin: 5px 0;
+            font-weight: normal;
+            color: #333;
+        }
+        .btn-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        button {
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #ff1493;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #fff8fa;
+            border-radius: 5px;
+        }
+        .question {
+            font-weight: bold;
+            color: #d14081;
+            margin-bottom: 10px;
+        }
+        .range-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 5px;
+            color: #777;
+        }
+        #records-container {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #fff8fa;
+            border-radius: 8px;
+            border: 2px solid #ffb6c1;
+        }
+        .record-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .record-item h3 {
+            margin-top: 0;
+            color: #ff69b4;
+        }
+        .record-actions {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        .record-actions button {
+            padding: 5px 10px;
+            font-size: 12px;
+            margin-left: 5px;
+        }
+        .hidden {
+            display: none;
+        }
+        .tabs {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ffb6c1;
+        }
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #fff8fa;
+            border: 1px solid #ffb6c1;
+            border-bottom: none;
+            border-radius: 5px 5px 0 0;
+            margin-right: 5px;
+        }
+        .tab.active {
+            background-color: #ff69b4;
+            color: white;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        #data-format-selector {
+            margin-bottom: 15px;
+        }
+        pre {
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Physical Fitness Test Form</h1>
+        
+        <div class="tabs">
+            <div class="tab active" data-tab="form-tab">Form</div>
+            <div class="tab" data-tab="records-tab">Records</div>
+            <div class="tab" data-tab="export-tab">Export Data</div>
+        </div>
+        
+        <div id="form-tab" class="tab-content active">
+            <form id="fitness-form" action="javascript:void(0);">
+                <!-- Personal Information -->
+                <fieldset>
+                    <legend>Personal Information</legend>
+                    <div class="form-group">
+                        <label for="name">Full Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="age">Age:</label>
+                        <input type="number" id="age" name="age" min="12" max="100" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Gender:</label>
+                        <select id="gender" name="gender" required>
+                            <option value="">Select option</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </fieldset>
+
+                <!-- Question 1 - Radio Buttons -->
+                <fieldset>
+                    <legend>Exercise Frequency</legend>
+                    <div class="form-group">
+                        <p class="question">1. How often do you engage in physical activity?</p>
+                        <label class="option-label">
+                            <input type="radio" name="exercise_frequency" value="rarely" required> 
+                            Rarely (less than once a week)
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="exercise_frequency" value="sometimes"> 
+                            Sometimes (1-2 times a week)
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="exercise_frequency" value="regularly"> 
+                            Regularly (3 or more times a week)
+                        </label>
+                    </div>
+                </fieldset>
+
+                <!-- Question 2 - Checkboxes -->
+                <fieldset>
+                    <legend>Exercise Preferences</legend>
+                    <div class="form-group">
+                        <p class="question">2. Which type of physical activities do you prefer?</p>
+                        <label class="option-label">
+                            <input type="checkbox" name="exercise_type" value="cardio"> 
+                            Cardio (running, swimming, cycling)
+                        </label>
+                        <label class="option-label">
+                            <input type="checkbox" name="exercise_type" value="strength"> 
+                            Strength Training (weights, resistance exercises)
+                        </label>
+                        <label class="option-label">
+                            <input type="checkbox" name="exercise_type" value="flexibility"> 
+                            Flexibility (yoga, stretching, pilates)
+                        </label>
+                    </div>
+                </fieldset>
+
+                <!-- Question 3 - Dropdown -->
+                <fieldset>
+                    <legend>Fitness Goals</legend>
+                    <div class="form-group">
+                        <p class="question">3. What is your primary fitness goal?</p>
+                        <select name="fitness_goal" required>
+                            <option value="">Select one option</option>
+                            <option value="weight_loss">Weight loss</option>
+                            <option value="muscle_gain">Muscle gain</option>
+                            <option value="endurance">Improved endurance</option>
+                        </select>
+                    </div>
+                </fieldset>
+
+                <!-- Question 4 - Range Slider -->
+                <fieldset>
+                    <legend>Current Fitness Level</legend>
+                    <div class="form-group">
+                        <p class="question">4. How would you rate your current fitness level?</p>
+                        <input type="range" id="fitness_level" name="fitness_level" min="1" max="3" step="1" value="2">
+                        <div class="range-labels">
+                            <span>Beginner</span>
+                            <span>Intermediate</span>
+                            <span>Advanced</span>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Question 5 - Select with limited options -->
+                <fieldset>
+                    <legend>Physical Limitations</legend>
+                    <div class="form-group">
+                        <p class="question">5. Do you have any physical limitations or health concerns?</p>
+                        <select name="limitations" required>
+                            <option value="">Select one option</option>
+                            <option value="none">No limitations</option>
+                            <option value="joint">Joint problems</option>
+                            <option value="cardiovascular">Cardiovascular issues</option>
+                        </select>
+                    </div>
+                </fieldset>
+
+                <!-- Question 6 - Radio buttons for time -->
+                <fieldset>
+                    <legend>Exercise Duration</legend>
+                    <div class="form-group">
+                        <p class="question">6. How long can you typically exercise in one session?</p>
+                        <label class="option-label">
+                            <input type="radio" name="exercise_duration" value="short" required> 
+                            Less than 30 minutes
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="exercise_duration" value="medium"> 
+                            30-60 minutes
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="exercise_duration" value="long"> 
+                            More than 60 minutes
+                        </label>
+                    </div>
+                </fieldset>
+
+                <!-- Question 7 - Buttons for selection -->
+                <fieldset>
+                    <legend>Recovery</legend>
+                    <div class="form-group">
+                        <p class="question">7. How long does it typically take you to recover after intense exercise?</p>
+                        <div style="display: flex; justify-content: space-between; margin-top: 10px;">
+                            <label class="option-label" style="flex: 1; text-align: center;">
+                                <input type="radio" name="recovery_time" value="short" required>
+                                <div style="padding: 10px; background-color: #ffb6c1; border-radius: 5px; margin: 0 5px;">
+                                    Less than a day
+                                </div>
+                            </label>
+                            <label class="option-label" style="flex: 1; text-align: center;">
+                                <input type="radio" name="recovery_time" value="medium">
+                                <div style="padding: 10px; background-color: #ffb6c1; border-radius: 5px; margin: 0 5px;">
+                                    1-2 days
+                                </div>
+                            </label>
+                            <label class="option-label" style="flex: 1; text-align: center;">
+                                <input type="radio" name="recovery_time" value="long">
+                                <div style="padding: 10px; background-color: #ffb6c1; border-radius: 5px; margin: 0 5px;">
+                                    More than 2 days
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Input for editing - hidden by default -->
+                <input type="hidden" id="edit-id" name="edit-id" value="">
+
+                <!-- Form Submission -->
+                <div class="btn-container">
+                    <button type="submit" id="submit-btn">Save Data</button>
+                    <button type="reset" id="reset-btn">Reset Form</button>
+                </div>
+            </form>
+        </div>
+        
+        <div id="records-tab" class="tab-content">
+            <h2>Saved Records</h2>
+            <div id="records-container">
+                <div id="no-records" class="hidden">No records found</div>
+                <div id="records-list"></div>
+            </div>
+        </div>
+        
+        <div id="export-tab" class="tab-content">
+            <h2>Export Data</h2>
+            <div class="form-group">
+                <label for="data-format-selector">Select format:</label>
+                <select id="data-format-selector">
+                    <option value="json">JSON Format</option>
+                    <option value="xml">XML Format</option>
+                </select>
+                <div class="btn-container">
+                    <button id="export-btn">Generate Export</button>
+                    <button id="download-btn">Download File</button>
+                </div>
+            </div>
+            <div id="export-preview">
+                <h3>Preview:</h3>
+                <pre id="export-content"></pre>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript files -->
+    <script src="data-storage.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
